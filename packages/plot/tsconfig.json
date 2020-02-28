@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": [
+    "./src",
+    "../../types/*.d.ts"
+  ],
+  "paths": {
+    "@nextgis/*": [
+      "../nextgisweb_frontend/packages/*/src/"
+    ]
+  }
+}

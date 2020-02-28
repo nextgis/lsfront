@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "lib",
+    "declaration": true, /* Generates corresponding '.d.ts' file. */
+    "declarationDir": "lib",
+    "module": "esNext"
+  },
+  "include": [
+    "./src"
+  ]
+}

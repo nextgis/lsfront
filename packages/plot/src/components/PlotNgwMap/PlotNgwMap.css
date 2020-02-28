@@ -1,0 +1,7 @@
+.leaflet-pane.leaflet-popup-pane {
+  z-index: 2001;
+}
+
+.leaflet-pane.leaflet-tooltip-pane {
+  z-index: 2002;
+}

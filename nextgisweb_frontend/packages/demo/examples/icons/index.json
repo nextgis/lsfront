@@ -1,0 +1,5 @@
+{
+  "name": "Icons",
+  "description": "",
+  "ngwMaps": ["ngw-leaflet", "ngw-ol", "ngw-mapbox"]
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.9/core.min.js"></script>
+  <!-- <script src="https://unpkg.com/@nextgis/ngw-connector"></script> -->
+  <script src="../../lib/ngw-connector.js"></script>
+</head>
+
+<body>
+  <p>Login status:</p>
+  <div id="login-status">loading...</div>
+  <p>Result:</p>
+  <div id="results">loading...</div>
+
+  <script>
+    var loginStatusElement = document.getElementById('login-status');
+    var resultElement = document.getElementById('results');
+    var appendResponce = function (toElement, resp) {
+      toElement.innerHTML = '';
+      toElement.appendChild(document.createElement('pre')).innerHTML = JSON.stringify(resp, null, 2);
+    }
+    var connector = new NgwConnector({
+      baseUrl: 'https://demo.nextgis.com',
+      auth: {
+        login: 'test',
+        password: 'test123'
+      }
+    });
+    connector.get('resource.item', null, {
+      id: 4011
+    }).then(function (data) {
+      appendResponce(resultElement, data)
+    });
+    connector.emitter.on('login', function(data) {
+      appendResponce(loginStatusElement, data);
+    });
+    connector.emitter.on('error', function(data) {
+      appendResponce(resultElement, data);
+    });
+  </script>
+
+</body>
+
+</html>

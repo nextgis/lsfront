@@ -1,0 +1,45 @@
+{
+  "name": "@veles/annex",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "fix": "eslint --fix --ext .ts src"
+  },
+  "dependencies": {
+    "@mdi/js": "^4.8.95",
+    "@turf/bearing": "^6.0.1",
+    "@turf/distance": "^6.0.1",
+    "@types/events": "^3.0.0",
+    "@types/file-saver": "^2.0.1",
+    "@types/jszip": "^3.1.7",
+    "@veles/common": "^0.0.1",
+    "@veles/plot": "^0.0.1",
+    "file-saver": "^2.0.2",
+    "html-to-image": "^0.1.1",
+    "html2canvas": "^1.0.0-rc.5",
+    "jszip": "^3.2.2",
+    "ol": "^6.1.1",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.2",
+    "vue-property-decorator": "^8.3.0",
+    "vue-router": "^3.1.5",
+    "vuetify": "^2.2.8",
+    "vuex": "^3.1.2",
+    "vuex-module-decorators": "^0.16.1"
+  },
+  "devDependencies": {
+    "@nextgis/eslint-config": "^0.25.0",
+    "typescript": "^3.7.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://gitlab.com/nextgis_private/veles_frontend.git"
+  },
+  "keywords": [
+    "NextGIS",
+    "MAP"
+  ],
+  "author": "NextGIS",
+  "license": "LGPL-3.0"
+}

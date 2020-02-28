@@ -1,0 +1,52 @@
+{
+  "name": "@veles/plot",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "fix": "eslint --fix --ext .ts src",
+    "start": "webpack-dev-server --progress --open --hot --port 8080",
+    "build": "webpack --progress",
+    "watch": "rimraf ./dist && npm run build -- --watch",
+    "dev": "rimraf ./dist && npm run build",
+    "prod": "rimraf ./dist && npm run build -- --mode=production"
+  },
+  "dependencies": {
+    "@geoman-io/leaflet-geoman-free": "^2.3.0",
+    "@mapbox/togeojson": "^0.16.0",
+    "@mdi/js": "^4.8.95",
+    "@nextgis/vue-ngw-leaflet": "^0.25.0",
+    "@nextgis/vuetify-ngw-components": "^0.25.0",
+    "@turf/area": "^6.0.1",
+    "@types/events": "^3.0.0",
+    "@types/node": "^13.7.0",
+    "@types/proj4": "^2.5.0",
+    "@types/wellknown": "^0.5.1",
+    "@veles/common": "^0.0.1",
+    "tokml": "^0.4.0",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.2",
+    "vue-property-decorator": "^8.3.0",
+    "vue-router": "^3.1.5",
+    "vuetify": "^2.2.8",
+    "vuex": "^3.1.2",
+    "vuex-module-decorators": "^0.16.1"
+  },
+  "devDependencies": {
+    "@nextgis/eslint-config": "^0.25.0",
+    "typescript": "^3.7.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://gitlab.com/nextgis_private/veles_frontend.git"
+  },
+  "keywords": [
+    "NextGIS",
+    "MAP"
+  ],
+  "files": [
+    "src/"
+  ],
+  "author": "NextGIS",
+  "license": "LGPL-3.0"
+}

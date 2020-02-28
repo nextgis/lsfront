@@ -1,0 +1,30 @@
+{
+  "name": "veles_frontend",
+  "version": "0.2.1",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {},
+  "scripts": {
+    "fix": "lerna run fix",
+    "start": "cd ./packages/app && yarn start",
+    "build": "cd ./packages/app && yarn build",
+    "watch": "cd ./packages/app && yarn watch",
+    "dev": "cd ./packages/app && yarn dev",
+    "prod": "cd ./packages/app && yarn prod",
+    "update:version": "lerna version --no-push",
+    "ngw:init": "ts-node --project scripts/tsconfig.json ./scripts/ngwInit.ts",
+    "docker": "docker build -t registry.nextgis.com/veles-frontend:latest . && docker push registry.nextgis.com/veles-frontend:latest"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.1",
+    "@types/prompts": "^2.0.3",
+    "chalk": "^3.0.0",
+    "lerna": "^3.19.0",
+    "prompts": "^2.3.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.3"
+  }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Custom Input | Ngw Uploader Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.9/core.min.js"></script>
+  <!-- <script src="https://unpkg.com/@nextgis/ngw-leaflet"></script> -->
+  <script type="text/javascript" src="../../../ngw-leaflet/lib/ngw-leaflet.js"></script>
+  <!-- <script src="https://unpkg.com/@nextgis/ngw-uploader"></script> -->
+  <script type="text/javascript" src="../../lib/ngw-uploader.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body,
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    #control-element {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="control-element">
+    <p>Select GEOTIFF file</p>
+    <input id="resource-input" type="file" />
+    <div id='uploader'></div>
+    <p id='status'></p>
+  </div>
+  <div id='map'></div>
+  <script>
+    var uploader = document.getElementById('uploader');
+    var statusUpload = document.getElementById('status');
+    var input = document.getElementById('resource-input');
+    var baseUrl = 'http://dev.nextgis.com/sandbox';
+
+    var element = document.getElementById('control-element');
+    element.parentNode.removeChild(element);
+
+    var ngwUploader = new NgwUploader({
+      baseUrl: baseUrl
+    });
+
+    var map = new NgwMap({
+      baseUrl: baseUrl,
+      target: 'map',
+      qmsId: 487,
+      bounds: [30, 20, 180, 70]
+    });
+
+    var control = map.createControl({
+      onAdd: function () {
+        return element;
+      }
+    }, { margin: true });
+    map.addControl(control, 'top-right');
+
+    ngwUploader.emitter.on('status:change', function (evt) {
+      statusUpload.innerHTML = evt.message;
+    });
+
+    input.addEventListener('change', function () {
+      ngwUploader.uploadRaster(input.files[0], {
+        addTimestampToName: true
+      }).then(function (newStyle) {
+        map.addNgwLayer({ resourceId: newStyle.id }).then(function (layer) {
+          map.zoomToLayer(layer);
+        });
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>
